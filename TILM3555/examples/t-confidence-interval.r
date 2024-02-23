@@ -1,7 +1,7 @@
 # R-esimerkki: t-luottamusvälin muodostaminen naisten keskipituudelle
 
 # luetaan aineisto
-terveys <- read.csv("~/Projects/R/TILM3555/materials/terveys.csv",  sep=";")
+terveys <- read.csv("~/Projects/uni-assignments/R/TILM3555/materials/terveys.csv",  sep=";")
 
 # valitaan vektoriin naisten pituudet
 x <- subset(terveys, sukupuoli=="Nainen")$pituus
