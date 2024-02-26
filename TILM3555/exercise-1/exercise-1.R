@@ -1,49 +1,42 @@
-# Vastaus tehtävään 1 palautettavassa PDF:ssä
+# t.2)
 
-# 2.) 
-# Kevään 2023 tilastollisen päättelyn peruskurssin toisen tenttikerran arvosanat olivat:
-# 1 0 0 0 5 2 2 0 1 1 0 0 2 0 2 3 0 0 1 2 1 0 0 0 0 1 1 4 0 1
-# Muodosta näistä frekvenssijakauma ja piirrä vastaava pylväskuvio. Mikä on arvosanojen
-# moodi?
+grades <- c(1, 0, 0, 0, 5, 2, 2, 0, 1, 1, 0, 0, 2, 0, 2, 3, 0, 0, 1, 2, 1, 0, 0, 0, 0, 1, 1, 4, 0, 1)
 
-getmode <- function(x) {
-  # Tallennetaan x:n uniikit arvot muuttujaan ux
-  ux <- unique(x) 
-  # match(x, ux): Haetaan indeksit, jotka vastaavat x-vektorin arvoja ux-vektorissa
-  # tabulate(...): Lasketaan, kuinka monta kertaa kukin uniikki arvo esiintyy x:ssä
-  # which.max(...): Haetaan indeksi eniten x:ssä esiintyneelle arvolle
-  ux[which.max(tabulate(match(x, ux)))]
-}
-
-# Arvosanat vektorissa
-grades = c(1, 0, 0, 0, 5, 2, 2, 0, 1, 1, 0, 0, 2, 0, 2, 3, 0, 0, 1, 2, 1, 0, 0, 0, 0, 1, 1, 4, 0, 1)
 # Frekvenssijakauma
-grades_table = table(grades)
-# Pylväskuvio
+grades_table <- table(grades)
+
+# Jakaumaa vastaava pylväskuvio
 barplot(grades_table, col="blue")
-# Moodi (yllä määr. funktion avulla)
-getmode(grades)
 
-# 3.)
-# Jatkoa edelliseen tehtävään. Määritä arvosanojen (otos)keskiarvo, mediaani ja kvartiilit.
+# t.3)
 
-# Otoskeskiarvo
-mean(grades)
-# Mediaani
-median(grades)
-# Kvartiilit
-quantile(grades)
+# Kvartiilit (0.25, 0.5 [mediaani], 0.75)
+# Huom. 'type=2' tarvitaan, jotta kvartiilit lasketaan oikealla algoritmilla
+quantile(grades, probs=c(0.25, 0.5, 0.75), type=2)
 
-# Vastaus tehtävään 4 palautettavassa PDF:ssä (tehtävään liittyvä skripti alla)
+# t.4)
 
+# Tallennetaan arvot muuttujiin a ja b
 a <- 8
 b <- 2
+
+# Suoritetaan määritellyillä muuttujilla yhteen-, vähennys-, ja potenssilasku
 a+b
 a*b
 b^a
-log (a)
-sqrt (b)
-x <- c (3 ,1 ,4 ,0 ,1 ,2 ,6 ,6)
-sum (x)
-y <- c (1:8)
+
+# Otetaan luonnollinen logaritmi ja neliöjuuri muuttujasta
+log(a)
+sqrt(b)
+
+# Tallennetaan vektori arvoja muuttujaan x
+x <- c(3, 1, 4, 0, 1, 2, 6, 6)
+
+# Lasketaan yhteen kaikki vektorin arvot
+sum(x)
+
+# Tallennetaan vektori arvoja (kokonaisluvut 1..8) muuttujaan y
+y <- c(1:8)
+
+# Lasketaan yhteen vektorit alkiokohtaisesti
 x+y
