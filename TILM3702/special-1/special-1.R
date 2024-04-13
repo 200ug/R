@@ -34,14 +34,12 @@ library(car)
 leveneTest(pala~kumu*ahtas)
 
 # Itse kaksisuuntainen varianssianalyysi
-malli <- anova(lm(pala~kumu*ahtas))
-malli
-malli_lm2 <- aov(malli)
+malli <- lm(pala~kumu*ahtas)
+anova(malli)
+
+# Tutkitaan selittäjien keskiarvojen profiileita
+interaction.plot(ahtas, kumu, pala, las=1, lwd=2)
 
 # Tukeyn testi yhdysvaikutukselle (erot selittäjien eri luokkien välillä)
+malli_lm2 <- aov(malli)
 TukeyHSD(malli_lm2)
-
-
-
-
-
