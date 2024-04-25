@@ -57,12 +57,12 @@ pacf <- pacf(ts(dy, freq=1), lag=20, main="Estimoitu osittaisautokorrelaatiofunk
 # Autokorrelaation olemassaolon havainnointi Ljung-Box-testin avulla (4)
 Box.test(dy, lag=20, type=c("Ljung-Box"))
 
-# install.packages("forecast")
+install.packages("forecast")
 library(forecast)
 
-# AR(5) & MA(3) -malli (arvot aiempien tehtävien perusteella) (5)
+# ARMA(5, 3)-malli (arvot aiempien tehtävien perusteella) (5)
 fit.own <- Arima(dy, order=c(5, 0, 3), include.mean=TRUE, include.drift=FALSE, transform.pars=TRUE)  
-fit.og
+fit.own
 
 # ARMA(3, 2)-malli vertailukohtana (5)
 fit.og <- Arima(dy, order=c(3, 0, 2), include.mean=TRUE, include.drift=FALSE, transform.pars=TRUE)  
