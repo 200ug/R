@@ -136,6 +136,8 @@ data.kor1 <- cor(oma.otos4, method="pearson", use="complete.obs")
 data.kor1
 
 # Korrelaatiomatriisin sopivuus pääkomponenttianalyysiin
+install.packages("psych")
+library(psych)
 KMO(data.kor1)
 
 # Pääkomponenttianalyysi
