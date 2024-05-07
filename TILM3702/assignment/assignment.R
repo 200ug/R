@@ -1,5 +1,8 @@
 # Harjoitustyön raportti erillisenä dokumenttina (PDF-muodossa)
 
+# Tallennetaan tuloste erilliseen tiedostoon, joka liitetään palautuksen yhteyteen
+sink("/tmp/harjoitustyo-tuloste.txt")
+
 # Numeeristen vastemuuttujien mallitus (elinolo2020, n=2199)
 library(foreign)
 ht1.dat <- read.spss("~/Projects/uni-assignments/R/TILM3702/materials/elinolo2020.sav", to.data.frame=TRUE)
@@ -182,3 +185,6 @@ for (k in 2:5) {
 }
 
 results
+
+# Suljetaan kirjoitusyhteys tiedostoon
+sink()
